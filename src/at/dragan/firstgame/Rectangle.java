@@ -2,12 +2,12 @@ package at.dragan.firstgame;
 
 import org.newdawn.slick.Graphics;
 
-public class Rectangle {
+public class Rectangle implements Actor {
     private float x;
     private float y;
     private float speed;
 
-    public Rectangle(float x, float y, float speed) {
+    public Rectangle (float x, float y, float speed) {
         this.x = x;
         this.y = y;
         this.speed = speed;

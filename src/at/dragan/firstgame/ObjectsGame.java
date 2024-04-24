@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 public class ObjectsGame extends BasicGame {
-    private List<Rectangle> rectangles;
-    private List<Circle> circles;
+    private List<Actor> actors;
+
 
     public ObjectsGame(String title) {
         super(title);
@@ -16,31 +16,31 @@ public class ObjectsGame extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        this.rectangles = new ArrayList<>();
-        this.circles = new ArrayList<>();
+        this.actors = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 100; i++) {
             Rectangle rectangle = new Rectangle(random.nextInt(600), random.nextInt(600), random.nextInt(50));
-            rectangles.add(rectangle);
+            this.actors.add(rectangle);
 
 
         }
         for (int i = 0; i < 50; i++) {
             Circle circle = new Circle();
-            circles.add(circle);
+            this.actors.add(circle);
 
 
 
+        }
+        for (int i = 0; i < 5; i++){
+            Ellipse ellipse = new Ellipse(random.nextInt(600), random.nextInt(600));
+            this.actors.add(ellipse);
         }
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        for (Rectangle rectangle : this.rectangles) {
-            rectangle.update(delta);
-        }
-        for (Circle circle : this.circles) {
-            circle.update(delta);
+        for (Actor actor : this.actors) {
+            actor.update(delta);
         }
     }
 
@@ -48,11 +48,8 @@ public class ObjectsGame extends BasicGame {
     //für nächstes mal, x = 120, 600  y=120, 400
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-        for (Rectangle rectangle : this.rectangles) {
-            rectangle.render(graphics);
-        }
-        for (Circle circle : this.circles) {
-            circle.render(graphics);
+        for (Actor actor : this.actors) {
+            actor.render(graphics);
         }
     }
 
