@@ -2,15 +2,23 @@ package at.dragan.firstgame;
 
 import org.newdawn.slick.Graphics;
 
+import java.util.Random;
+
 public class Rectangle implements Actor {
     private float x;
     private float y;
-    private float speed;
+    private int speed;
+    Random random = new Random();
 
-    public Rectangle (float x, float y, float speed) {
+    public Rectangle (float x, float y, String direction) {
         this.x = x;
         this.y = y;
-        this.speed = speed;
+        if (direction.equals("Right")){
+            this.speed = random.nextInt(50 + 10);
+        } else if (direction.equals("Left")) {
+            this.speed = random.nextInt(50) - 100;
+
+        }
     }
 
     public void render(Graphics graphics) {
@@ -21,6 +29,9 @@ public class Rectangle implements Actor {
         this.x += (float) delta / this.speed;
         if (this.x > 800) {
             this.x = 0;
+        }
+        if (this.x < 0) {
+            this.x = 800;
         }
     }
 }
