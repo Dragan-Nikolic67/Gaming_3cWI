@@ -2,6 +2,8 @@ package at.dragan.firstgame;
 
 import org.newdawn.slick.Graphics;
 
+import java.util.Random;
+
 public class Ellipse implements Actor {
     private float x;
     private float y;
@@ -18,6 +20,11 @@ public class Ellipse implements Actor {
     }
 
     public void update(int delta) {
+        Random random = new Random();
+        if (this.x >= 800 || this.y >=600){
+            this.x = random.nextInt(600);
+            this.y = random.nextInt(600);
+        }
         this.y += (float)delta/this.speed;
         this.x += (float)delta/this.speed;
     }

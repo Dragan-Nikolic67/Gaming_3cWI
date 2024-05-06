@@ -23,6 +23,7 @@ public class ObjectsGame extends BasicGame {
             this.actors.add(rectangle);
 
 
+
         }
         for (int i = 0; i < 10; i++) {
             Circle circle = new Circle();
@@ -45,7 +46,7 @@ public class ObjectsGame extends BasicGame {
     }
 
 
-    //für nächstes mal, x = 120, 600  y=120, 400
+
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
         for (Actor actor : this.actors) {

@@ -32,6 +32,7 @@ public class Rectangle implements Actor {
         }
         if (this.x < 0) {
             this.x = 800;
+
         }
     }
 }
