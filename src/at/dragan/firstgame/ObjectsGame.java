@@ -31,6 +31,7 @@ public class ObjectsGame extends BasicGame {
 
 
 
+
         }
         for (int i = 0; i < 10; i++){
             Ellipse ellipse = new Ellipse(random.nextInt(600), random.nextInt(600));
