@@ -37,7 +37,11 @@ public class ObjectsGame extends BasicGame {
             Ellipse ellipse = new Ellipse(random.nextInt(600), random.nextInt(600));
             this.actors.add(ellipse);
         }
-    }
+        for (int i = 0; i < 10; i++) {
+            Damien damien = new Damien(random.nextInt(600), random.nextInt(600), 0.9);
+            this.actors.add(damien);
+
+    }}
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {

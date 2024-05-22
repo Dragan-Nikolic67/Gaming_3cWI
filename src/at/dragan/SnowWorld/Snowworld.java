@@ -15,7 +15,7 @@ public class Snowworld extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.snowflakes = new ArrayList<>();
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 1000; i++) {
             this.snowflakes.add(new Snowflake(Snowflake.SIZE.Large));
             this.snowflakes.add(new Snowflake(Snowflake.SIZE.Medium));
             this.snowflakes.add(new Snowflake(Snowflake.SIZE.Small));
