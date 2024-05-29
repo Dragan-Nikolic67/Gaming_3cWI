@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class ObjectsGame extends BasicGame {
     private List<Actor> actors;
+    private Damien damien;
 
 
     public ObjectsGame(String title) {
@@ -23,34 +24,38 @@ public class ObjectsGame extends BasicGame {
             this.actors.add(rectangle);
 
 
-
         }
         for (int i = 0; i < 10; i++) {
             Circle circle = new Circle();
             this.actors.add(circle);
 
 
-
-
         }
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             Ellipse ellipse = new Ellipse(random.nextInt(600), random.nextInt(600));
             this.actors.add(ellipse);
         }
-        for (int i = 0; i < 10; i++) {
-            Damien damien = new Damien(random.nextInt(600), random.nextInt(600), 0.9);
-            this.actors.add(damien);
+        Damien damien = new Damien(10, 2, 2);
+        this.damien = damien;
+        this.actors.add(damien);
 
-    }}
+    }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
         for (Actor actor : this.actors) {
-            actor.update(delta);
+            actor.update(gameContainer, delta);
         }
     }
 
-
+    @Override
+    public void keyPressed(int key, char c) {
+        if (key == Input.KEY_SPACE) {
+            System.out.println("Shoot");
+            Cannonball cb = new Cannonball(this.damien.getX(), this.damien.getY());
+            this.actors.add(cb);
+        }
+    }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
