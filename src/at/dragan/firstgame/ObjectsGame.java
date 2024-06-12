@@ -20,22 +20,14 @@ public class ObjectsGame extends BasicGame {
         this.actors = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
-            Rectangle rectangle = new Rectangle(random.nextInt(600), random.nextInt(600), "Left");
+            Rectangle rectangle = new Rectangle(random.nextInt(600), random.nextInt(100));
             this.actors.add(rectangle);
 
 
         }
-        for (int i = 0; i < 10; i++) {
-            Circle circle = new Circle();
-            this.actors.add(circle);
 
 
-        }
-        for (int i = 0; i < 10; i++) {
-            Ellipse ellipse = new Ellipse(random.nextInt(600), random.nextInt(600));
-            this.actors.add(ellipse);
-        }
-        Damien damien = new Damien(10, 2, 2);
+        Damien damien = new Damien(300, 400, 2);
         this.damien = damien;
         this.actors.add(damien);
 

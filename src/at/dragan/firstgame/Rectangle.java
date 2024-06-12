@@ -11,29 +11,19 @@ public class Rectangle implements Actor {
     private int speed;
     Random random = new Random();
 
-    public Rectangle(float x, float y, String direction) {
+    public Rectangle(float x, float y) {
         this.x = x;
         this.y = y;
-        if (direction.equals("Right")) {
-            this.speed = random.nextInt(50 + 10);
-        } else if (direction.equals("Left")) {
-            this.speed = random.nextInt(50) - 100;
+        this.speed = random.nextInt(50) - 100;
 
         }
-    }
+
 
     public void render(Graphics graphics) {
-        graphics.drawRect(this.x, this.y, 20, 10);
+        graphics.drawRect(this.x, this.y, 60, 30);
     }
 
     public void update(GameContainer gameContainer, int delta) {
-        this.x += (float) delta / this.speed;
-        if (this.x > 800) {
-            this.x = 0;
-        }
-        if (this.x < 0) {
-            this.x = 800;
+        this.y -= (float) delta / this.speed;
 
-        }
-    }
-}
+    }}
